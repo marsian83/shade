@@ -1,10 +1,10 @@
-🌑 Shade
+# 🌑 Shade
 
 MEV-Resistant Intent-Based Agentic Swaps
 
 Trade based on intent, not transactions.
 
-✨ Overview
+## ✨ Overview
 
 Shade is a privacy-first execution layer for DeFi that lets users submit encrypted trading intents instead of publicly visible transactions.
 
@@ -15,7 +15,7 @@ Instead of broadcasting swaps to the mempool, users define conditions like:
 
 These intents are encrypted and stored on-chain, where they are evaluated using Fully Homomorphic Encryption (FHE). Trades are only executed when conditions are met — without revealing strategy, timing, or thresholds beforehand.
 
-🚨 The Problem
+## 🚨 The Problem
 
 DeFi today is fundamentally leaky.
 
@@ -33,7 +33,7 @@ strategies cannot remain private
 
 Even sophisticated users cannot avoid this — it’s a structural issue.
 
-🛡️ The Solution
+## 🛡️ The Solution
 
 Shade removes pre-trade information leakage by introducing encrypted intent execution.
 
@@ -43,7 +43,7 @@ Execution is validated and constrained
 Orders are batched and netted to reduce exposure
 Trades use existing liquidity like Uniswap
 
-🧠 How It Works
+## 🧠 How It Works
 Intent Creation
 User describes trade in natural language
 Local agent converts it into structured intent
@@ -62,31 +62,32 @@ Final trade is executed via Uniswap
 Settlement
 Users receive their fills
 Execution is verified on-chain
-🔐 What’s Private
+#### 🔐 What’s Private
 Entry/exit conditions
 Strategy logic
 Timing of execution
 Trigger thresholds
-🌐 What’s Public
+#### 🌐 What’s Public
 Final executed trade
 Token pairs
 Settlement results
 
-⚡ Key Features
+## ⚡ Key Features
 🧠 Intent-based trading (not tx-based)
 🔐 Encrypted conditions using FHE
 🛡️ Reduced MEV exposure
 🔄 Batching + netting engine
 🧱 Composable with existing DeFi
 ⚖️ Deterministic, verifiable execution
-🧩 Architecture
-Client / Agent Layer
+
+## 🧩 Architecture
+### Client / Agent Layer
 Parses user intent
 Encrypts sensitive fields
-Fhenix Smart Contract
+### Fhenix Smart Contract
 Stores encrypted data
 Validates execution conditions
-Executor
+### Executor
 Monitors valid orders
 Batches & nets them
 Triggers execution
