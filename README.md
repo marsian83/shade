@@ -2,7 +2,7 @@
 
 MEV-Resistant Intent-Based Agentic Swaps
 
-Trade based on intent, not transactions.
+Trade based on intent, not transactions..
 
 ## ✨ Overview
 
