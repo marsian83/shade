@@ -93,3 +93,143 @@ Batches & nets them
 Triggers execution
 Liquidity Layer
 Trades executed via Uniswap
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- **Node.js** 18+ or **pnpm** 8+
+- **Hardhat** for smart contract development
+- Testnet funds (Base Sepolia)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/shade.git
+   cd shade
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+### Compile Contracts
+
+Compile the Solidity contracts to generate TypeChain types:
+
+```bash
+npx hardhat compile
+```
+
+This generates artifacts in `/artifacts` and types in `/typechain-types`.
+
+### Run Tests
+
+Run the test suite locally using Hardhat's test environment with Cofhe mocks:
+
+```bash
+npx hardhat test
+```
+
+**What the tests verify:**
+- ✅ Creating encrypted intents with FHE
+- ✅ Evaluating execution conditions privately
+- ✅ Verifying contract state after evaluation
+
+### Local Development
+
+Start a local Hardhat network node:
+
+```bash
+npx hardhat node
+```
+
+In another terminal, deploy to localhost:
+
+```bash
+npx hardhat run scripts/deploy.ts --network localhost
+```
+
+### Deployment
+
+#### Deploy to Base Sepolia Testnet
+
+Ensure your `.env` file has:
+```
+BASE_SEPOLIA_RPC_URL=your_rpc_url
+PRIVATE_KEY=your_private_key
+```
+
+Then deploy:
+
+```bash
+npx hardhat run scripts/deploy.ts --network baseSepolia
+```
+
+#### Verify Deployed Contract
+
+Check the status of a deployed contract:
+
+```bash
+node check_contract.js
+```
+
+### Frontend Development
+
+Run the Next.js frontend locally:
+
+```bash
+cd shade-frontend
+pnpm install
+pnpm dev
+```
+
+Visit `http://localhost:3000` in your browser.
+
+## 📚 Project Structure
+
+```
+shade/
+├── contracts/          # Solidity smart contracts
+│   └── ShadeIntent.sol # Main contract with FHE logic
+├── scripts/            # Deployment scripts
+│   └── deploy.ts       # Deploy to networks
+├── test/               # Test suite
+│   └── ShadeIntent.test.ts
+├── shade-frontend/     # Next.js frontend
+├── artifacts/          # Compiled contract ABI & bytecode
+└── typechain-types/    # TypeScript contract types
+```
+
+## 🔧 Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `pnpm install` | Install all dependencies |
+| `npx hardhat compile` | Compile Solidity contracts |
+| `npx hardhat test` | Run test suite |
+| `npx hardhat node` | Start local Hardhat network |
+| `npx hardhat run scripts/deploy.ts --network localhost` | Deploy to local network |
+| `npx hardhat run scripts/deploy.ts --network baseSepolia` | Deploy to Base Sepolia |
+| `node check_contract.js` | Check deployed contract state |
+| `cd shade-frontend && pnpm dev` | Start frontend dev server |
+
+## 📝 Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+BASE_SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/your-infura-key
+PRIVATE_KEY=0xyour_wallet_private_key
+```
+
+⚠️ **Never commit `.env` to version control!**
+
+## 📖 Learn More
+
+- [Hardhat Documentation](https://hardhat.org/getting-started/)
+- [Cofhe SDK](https://github.com/fhenixprotocol/cofhe-sdk)
+- [Fhenix Protocol](https://www.fhenix.io/)
+- [Fully Homomorphic Encryption (FHE)](https://en.wikipedia.org/wiki/Homomorphic_encryption)
