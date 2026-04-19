@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #edf3ff;
+    --foreground: #0f172a;
+    --surface: rgba(255, 255, 255, 0.82);
+    --surface-strong: rgba(255, 255, 255, 0.96);
+    --line: rgba(148, 163, 184, 0.22);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #edf3ff;
+        --foreground: #0f172a;
+        --surface: rgba(255, 255, 255, 0.82);
+        --surface-strong: rgba(255, 255, 255, 0.96);
+        --line: rgba(148, 163, 184, 0.22);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(99, 102, 241, 0.16), transparent 24%),
+        linear-gradient(180deg, #f7fbff 0%, #edf3ff 46%, #e8eefb 100%);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), sans-serif;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.18), transparent 24%),
+        radial-gradient(circle at 100% 20%, rgba(34, 197, 94, 0.12), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #eff5ff 42%, #e9effa 100%);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(circle at center, black 48%, transparent 100%);
+    opacity: 0.45;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+::selection {
+    background: rgba(37, 99, 235, 0.18);
+}
+
+.from-token-green {
+    background: linear-gradient(135deg, #0f766e 0%, #0b8d79 100%);
+}
+
+.from-token-indigo,
+.to-token-indigo {
+    background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+}
+
+.to-token-green {
+    background: linear-gradient(135deg, #047857 0%, #059669 100%);
+}
+
+.from-token-blue {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
 }
